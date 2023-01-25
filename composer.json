@@ -1,0 +1,45 @@
+{
+    "name": "wamesk/laravel-nova-unit",
+    "description": "Laravel Nova 4 Units.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "nova4",
+        "unit",
+        "field"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "WAME s.r.o.",
+            "homepage": "https://wame.sk"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
+    "require": {
+        "laravel/nova": "^4.0",
+        "wamesk/laravel-commands": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wame\\LaravelNovaUnit\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wame\\LaravelNovaUnit\\PackageServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
