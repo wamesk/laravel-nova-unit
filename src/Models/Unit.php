@@ -15,6 +15,8 @@ class Unit extends BaseModel implements Sortable
     use SortableTrait;
 
 
+    public const BASIC_DISABLED = 0;
+    public const BASIC_ENABLED = 1;
     public const STATUS_DISABLED = 0;
     public const STATUS_ENABLED = 1;
 

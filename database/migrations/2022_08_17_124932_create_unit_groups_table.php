@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\Facades\Schema;
+use Wame\LaravelNovaUnit\Models\UnitGroup;
 
 return new class () extends Migration {
     /**
@@ -26,7 +27,7 @@ return new class () extends Migration {
 
             $table->string('title', 100);
             $table->string('slug', 100);
-            $table->boolean('status')->default(true);
+            $table->boolean('status')->default(UnitGroup::STATUS_ENABLED);
             $table->timestamps();
             $table->softDeletes();
 

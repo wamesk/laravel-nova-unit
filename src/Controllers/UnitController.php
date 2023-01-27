@@ -10,7 +10,7 @@ use App\Models\UnitGroup;
 
 final class UnitController extends Controller
 {
-    public static function getPairsByGroupId($groupSlug = null)
+    public static function getPairsByGroupSlug($groupSlug = null)
     {
         $query = Unit::where(['deleted_at' => null, 'status' => Unit::STATUS_ENABLED]);
 
@@ -19,12 +19,10 @@ final class UnitController extends Controller
                 $groupSlug = [$groupSlug];
             }
             $groupIds = UnitGroup::whereIn('slug', $groupSlug)->pluck('title', 'id');
-            $query->whereIn('group_id', $groupIds);
+            $query->whereIn('group_id', array_keys($groupIds->toArray()));
         }
 
         $list = $query->orderBy('sort')->get();
-
-        $groups = UnitGroup::where(['status' => true])->get()->keyBy('id');
 
         $return = [];
 
