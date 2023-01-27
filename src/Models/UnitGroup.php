@@ -7,7 +7,7 @@ namespace Wame\LaravelNovaUnit\Models;
 use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-final class UnitGroup extends BaseModel
+class UnitGroup extends BaseModel
 {
     use SoftDeletes;
 
