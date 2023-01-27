@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Wame\LaravelNovaLanguage;
+namespace Wame\LaravelNovaUnit;
 
 use Illuminate\Support\ServiceProvider;
 
