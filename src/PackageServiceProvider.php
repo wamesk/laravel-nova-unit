@@ -27,10 +27,14 @@ final class PackageServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Export model
             $model = app_path('Models/UnitGroup.php');
-            if (!file_exists($model)) $this->createModel($model, 'UnitGroup');
+            if (!file_exists($model)) {
+                $this->createModel($model, 'UnitGroup');
+            }
 
             $model = app_path('Models/Unit.php');
-            if (!file_exists($model)) $this->createModel($model, 'Unit');
+            if (!file_exists($model)) {
+                $this->createModel($model, 'Unit');
+            }
 
             // Export Nova resource
             $this->publishes([__DIR__ . '/../app/Nova' => app_path('Nova')], ['nova', 'wame', 'unit']);
@@ -73,7 +77,7 @@ final class PackageServiceProvider extends ServiceProvider
             "\n",
             $use,
             "\n",
-            "class " . $name . " extends \Wame\LaravelNovaLanguage\Models\\" . $name . "\n",
+            'class ' . $name . " extends \Wame\LaravelNovaLanguage\Models\\" . $name . "\n",
             "{\n",
             $use2,
             "\n",

@@ -1,20 +1,23 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Wame\LaravelNovaUnit\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Unit;
 use App\Models\UnitGroup;
 
-
-class UnitController extends Controller
+final class UnitController extends Controller
 {
     public static function getPairsByGroupId($groupSlug = null)
     {
         $query = Unit::where(['deleted_at' => null, 'status' => Unit::STATUS_ENABLED]);
 
         if ($groupSlug) {
-            if (!is_array($groupSlug)) $groupSlug = [$groupSlug];
+            if (!is_array($groupSlug)) {
+                $groupSlug = [$groupSlug];
+            }
             $groupIds = UnitGroup::whereIn('slug', $groupSlug)->pluck('title', 'id');
             $query->whereIn('group_id', $groupIds);
         }
@@ -50,5 +53,4 @@ class UnitController extends Controller
 
         return $return;
     }
-
 }

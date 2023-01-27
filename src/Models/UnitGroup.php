@@ -23,7 +23,7 @@ final class UnitGroup extends BaseModel
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
