@@ -77,7 +77,7 @@ final class PackageServiceProvider extends ServiceProvider
             "\n",
             $use,
             "\n",
-            'class ' . $name . " extends \Wame\LaravelNovaLanguage\Models\\" . $name . "\n",
+            'class ' . $name . " extends \Wame\LaravelNovaUnit\Models\\" . $name . "\n",
             "{\n",
             $use2,
             "\n",
