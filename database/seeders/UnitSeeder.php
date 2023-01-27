@@ -114,13 +114,13 @@ final class UnitSeeder extends Seeder
                 'status' => '1',
             ];
 
-            $group = UnitGroup::create($groupData);
+            $group = UnitGroup::updateOrCreate(['slug' => $item['slug']], $groupData);
 
             foreach ($item['items'] as $key => $itemData) {
                 $itemData['group_id'] = $group->id;
                 $itemData['sort'] = $key + 1;
 
-                Unit::create($itemData);
+                Unit::updateOrCreate(['slug' => $itemData['slug']], $itemData);
             }
         }
     }
