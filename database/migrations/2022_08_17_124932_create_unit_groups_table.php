@@ -28,8 +28,8 @@ return new class () extends Migration {
             $table->string('title', 100);
             $table->string('slug', 100);
             $table->boolean('status')->default(UnitGroup::STATUS_ENABLED);
-            $table->timestamps();
-            $table->softDeletes();
+            $table->datetimes();
+            $table->softDeletesDatetime();
 
             $table->index('status');
         });
