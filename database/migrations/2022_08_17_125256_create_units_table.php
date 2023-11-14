@@ -34,8 +34,8 @@ return new class () extends Migration {
             $table->boolean('basic')->default(Unit::BASIC_DISABLED);
             $table->boolean('status')->default(Unit::STATUS_ENABLED);
             $table->unsignedTinyInteger('sort')->default(0);
-            $table->timestamps();
-            $table->softDeletes();
+            $table->datetimes();
+            $table->softDeletesDatetime();
         });
     }
 
