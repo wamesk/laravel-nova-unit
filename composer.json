@@ -1,6 +1,7 @@
 {
     "name": "wamesk/laravel-nova-unit",
     "description": "Laravel Nova 4 Units.",
+    "version": "2.0",
     "keywords": [
         "laravel",
         "nova",
@@ -22,18 +23,21 @@
         }
     ],
     "require": {
-        "laravel/nova": "^4.0",
-        "wamesk/laravel-commands": "^1.0"
+        "laravel/framework": "9.*|10.*|11.*",
+        "sakanjo/laravel-easy-enum": "v1.*"
     },
     "autoload": {
         "psr-4": {
             "Wame\\LaravelNovaUnit\\": "src/"
-        }
+        },
+        "files": [
+            "src/Utils/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Wame\\LaravelNovaUnit\\PackageServiceProvider"
+                "Wame\\LaravelNovaUnit\\Providers\\PackageServiceProvider"
             ]
         }
     },
