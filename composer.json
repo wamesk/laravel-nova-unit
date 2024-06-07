@@ -1,7 +1,7 @@
 {
     "name": "wamesk/laravel-nova-unit",
     "description": "Laravel Nova 4 Units.",
-    "version": "2.1",
+    "version": "2.2",
     "keywords": [
         "laravel",
         "nova",

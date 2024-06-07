@@ -21,8 +21,6 @@ class UnitSelect extends Select
     {
         parent::__construct($name, $attribute, $resolveCallback);
 
-
-
         $this->options($this->getOptions());
     }
 

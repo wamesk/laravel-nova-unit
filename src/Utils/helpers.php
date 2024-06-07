@@ -23,3 +23,28 @@ if (!function_exists('calculate_unit')) {
         return ($value * $oldUnit->coefficient()) / $newUnit->coefficient();
     }
 }
+
+if (!function_exists('get_unit')) {
+    /**
+     * @throws Exception
+     */
+    function get_unit(string $value): null|UnitWeightEnum|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum {
+        $enums = [
+            UnitWeightEnum::class,
+            UnitAreaEnum::class,
+            UnitEnergyEnum::class,
+            UnitLengthEnum::class,
+            UnitQuantityEnum::class,
+            UnitVolumeEnum::class,
+        ];
+
+        foreach ($enums as $enum) {
+            $return = $enum::tryFrom($value);
+            if (isset($return)) {
+                return $return;
+            }
+        }
+
+        return null;
+    }
+}
