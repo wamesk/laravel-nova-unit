@@ -19,6 +19,11 @@ enum UnitWeightEnum: string
     case KILOGRAM = 'kilogram';
     case TONNE = 'tonne';
 
+    public static function basic(): UnitWeightEnum
+    {
+        return self::GRAM;
+    }
+
     public function coefficient(): float|int
     {
         return match ($this) {
@@ -41,5 +46,10 @@ enum UnitWeightEnum: string
             self::KILOGRAM => 'kg',
             self::TONNE => 't',
         };
+    }
+
+    public function groupTitle(): string
+    {
+        return __('unit::unit.weight');
     }
 }

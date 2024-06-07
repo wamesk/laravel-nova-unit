@@ -25,6 +25,11 @@ enum UnitAreaEnum: string
     case SQUARE_KILOMETER = 'square_kilometer';
     case SQUARE_MILE = 'square_mile';
 
+    public static function basic(): UnitAreaEnum
+    {
+        return self::SQUARE_METER;
+    }
+
     public function coefficient(): float|int
     {
         return match ($this) {
@@ -59,5 +64,10 @@ enum UnitAreaEnum: string
             self::SQUARE_KILOMETER => 'km²',
             self::SQUARE_MILE => 'mile²',
         };
+    }
+
+    public function groupTitle(): string
+    {
+        return __('unit::unit.area');
     }
 }

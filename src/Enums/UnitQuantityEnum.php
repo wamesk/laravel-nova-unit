@@ -17,6 +17,11 @@ enum UnitQuantityEnum: string
     case PAIR = 'pair';
     case PALETTE = 'palette';
 
+    public static function basic(): UnitQuantityEnum
+    {
+        return self::PIECE;
+    }
+
     public function coefficient(): int
     {
         return match ($this) {
@@ -32,5 +37,10 @@ enum UnitQuantityEnum: string
             self::PAIR => 'pár',
             self::PALETTE => 'pal.',
         };
+    }
+
+    public function groupTitle(): string
+    {
+        return __('unit::unit.quantity');
     }
 }

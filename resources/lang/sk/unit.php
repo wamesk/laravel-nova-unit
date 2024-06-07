@@ -3,6 +3,13 @@
 declare(strict_types = 1);
 
 return [
+    'area' => 'Plocha',
+    'energy' => 'Energia',
+    'length' => 'Dĺžka',
+    'quantity' => 'Počet',
+    'volume' => 'Obsah',
+    'weight' => 'Hmotnost',
+
     'millimeter' => 'Milimeter',
     'centimeter' => 'Centimeter',
     'inch' => 'Palec',

@@ -1,7 +1,7 @@
 {
     "name": "wamesk/laravel-nova-unit",
     "description": "Laravel Nova 4 Units.",
-    "version": "2.0",
+    "version": "2.1",
     "keywords": [
         "laravel",
         "nova",
@@ -24,6 +24,7 @@
     ],
     "require": {
         "laravel/framework": "9.*|10.*|11.*",
+        "laravel/nova": "^4.0",
         "sakanjo/laravel-easy-enum": "v1.*"
     },
     "autoload": {

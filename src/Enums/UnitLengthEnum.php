@@ -22,6 +22,11 @@ enum UnitLengthEnum: string
     case KILOMETER = 'kilometer';
     case MILE = 'mile';
 
+    public static function basic(): UnitLengthEnum
+    {
+        return self::MILLIMETER;
+    }
+
     public function coefficient(): float|int
     {
         return match ($this) {
@@ -50,5 +55,10 @@ enum UnitLengthEnum: string
             self::KILOMETER => 'km',
             self::MILE => 'ml',
         };
+    }
+
+    public function groupTitle(): string
+    {
+        return __('unit::unit.length');
     }
 }

@@ -21,6 +21,11 @@ enum UnitEnergyEnum: string
     case CALORIE = 'calorie';
     case JOULE = 'joule';
 
+    public static function basic(): UnitEnergyEnum
+    {
+        return self::KILOWATT_HOUR;
+    }
+
     public function coefficient(): float|int
     {
         return match ($this) {
@@ -47,5 +52,10 @@ enum UnitEnergyEnum: string
             self::CALORIE => 'cal',
             self::JOULE => 'J',
         };
+    }
+
+    public function groupTitle(): string
+    {
+        return __('unit::unit.energy');
     }
 }

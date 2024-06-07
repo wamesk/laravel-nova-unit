@@ -22,6 +22,11 @@ enum UnitVolumeEnum: string
     case BARREL = 'barrel';
     case CUBIC_METRE = 'cubic_metre';
 
+    public static function basic(): UnitVolumeEnum
+    {
+        return self::MILLILITER;
+    }
+
     public function coefficient(): string
     {
         return match ($this) {
@@ -49,5 +54,10 @@ enum UnitVolumeEnum: string
             self::BARREL => 'bl',
             self::CUBIC_METRE => 'm³',
         };
+    }
+
+    public function groupTitle(): string
+    {
+        return __('unit::unit.volume');
     }
 }
