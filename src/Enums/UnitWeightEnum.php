@@ -2,13 +2,11 @@
 
 namespace Wame\LaravelNovaUnit\Enums;
 
-use SaKanjo\EasyEnum;
 use Wame\LaravelNovaUnit\Enums\Traits\HasOptions;
 use Wame\LaravelNovaUnit\Enums\Traits\HasTitle;
 
 enum UnitWeightEnum: string
 {
-    use EasyEnum;
     use HasTitle;
     use HasOptions;
 
