@@ -19,7 +19,7 @@ enum UnitEnergyEnum: string implements UnitInterface
     case CALORIE = 'calorie';
     case JOULE = 'joule';
 
-    public static function basic(): UnitEnergyEnum
+    public static function basic()
     {
         return self::KILOWATT_HOUR;
     }

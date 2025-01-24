@@ -15,12 +15,12 @@ enum UnitQuantityEnum: string implements UnitInterface
     case PAIR = 'pair';
     case PALETTE = 'palette';
 
-    public static function basic(): UnitQuantityEnum
+    public static function basic()
     {
         return self::PIECE;
     }
 
-    public function coefficient(): int
+    public function coefficient(): float|int
     {
         return match ($this) {
             self::PACKAGING, self::PALETTE, self::PIECE, self::PAIR => 1,

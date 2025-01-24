@@ -9,8 +9,10 @@
 ## Usage
 
 ```php
+UnitSelect::make(__('product.field.weight_unit'), 'weight_unit'),
+
 UnitSelect::make(__('product.field.weight_unit'), 'weight_unit')
-    ->onlyGroups(UnitWeightEnum::class);
+    ->onlyGroups(UnitWeightEnum::class),
 
 UnitSelect::make(__('product.field.weight_unit'), 'weight_unit')
     ->exceptGroups([
@@ -18,7 +20,7 @@ UnitSelect::make(__('product.field.weight_unit'), 'weight_unit')
         UnitEnergyEnum::class,
         UnitWeightEnum::class,
         ...
-    ]);
+    ]),
 ```
 
 ## Enums

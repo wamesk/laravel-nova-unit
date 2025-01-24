@@ -17,7 +17,7 @@ enum UnitWeightEnum: string implements UnitInterface
     case KILOGRAM = 'kilogram';
     case TONNE = 'tonne';
 
-    public static function basic(): UnitWeightEnum
+    public static function basic()
     {
         return self::GRAM;
     }

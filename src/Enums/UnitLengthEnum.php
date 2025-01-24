@@ -20,7 +20,7 @@ enum UnitLengthEnum: string implements UnitInterface
     case KILOMETER = 'kilometer';
     case MILE = 'mile';
 
-    public static function basic(): UnitLengthEnum
+    public static function basic()
     {
         return self::MILLIMETER;
     }
