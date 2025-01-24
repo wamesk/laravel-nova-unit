@@ -6,6 +6,7 @@ use Exception;
 use Laravel\Nova\Fields\Select;
 use Wame\LaravelNovaUnit\Enums\UnitAreaEnum;
 use Wame\LaravelNovaUnit\Enums\UnitEnergyEnum;
+use Wame\LaravelNovaUnit\Enums\UnitInterface;
 use Wame\LaravelNovaUnit\Enums\UnitLengthEnum;
 use Wame\LaravelNovaUnit\Enums\UnitQuantityEnum;
 use Wame\LaravelNovaUnit\Enums\UnitVolumeEnum;
@@ -27,7 +28,7 @@ class UnitSelect extends Select
     /**
      * @throws Exception
      */
-    public function exceptGroups(array|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitWeightEnum $groups): self
+    public function exceptGroups(array|UnitInterface $groups): self
     {
         if ($this->usedOnlyGroups) {
             throw new Exception('Cannot use exceptGroups method when already used onlyGroups');
@@ -51,7 +52,7 @@ class UnitSelect extends Select
     /**
      * @throws Exception
      */
-    public function onlyGroups(array|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitWeightEnum $groups): self
+    public function onlyGroups(array|UnitInterface $groups): self
     {
         if ($this->usedExceptGroups) {
             throw new Exception('Cannot use onlyGroups method when already used exceptGroups');

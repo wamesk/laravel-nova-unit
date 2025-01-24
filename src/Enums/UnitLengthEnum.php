@@ -5,7 +5,7 @@ namespace Wame\LaravelNovaUnit\Enums;
 use Wame\LaravelNovaUnit\Enums\Traits\HasOptions;
 use Wame\LaravelNovaUnit\Enums\Traits\HasTitle;
 
-enum UnitLengthEnum: string
+enum UnitLengthEnum: string implements UnitInterface
 {
     use HasTitle;
     use HasOptions;
