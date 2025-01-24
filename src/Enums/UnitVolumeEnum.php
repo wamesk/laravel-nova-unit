@@ -5,7 +5,7 @@ namespace Wame\LaravelNovaUnit\Enums;
 use Wame\LaravelNovaUnit\Enums\Traits\HasOptions;
 use Wame\LaravelNovaUnit\Enums\Traits\HasTitle;
 
-enum UnitVolumeEnum: string
+enum UnitVolumeEnum: string implements UnitInterface
 {
     use HasTitle;
     use HasOptions;
@@ -20,12 +20,12 @@ enum UnitVolumeEnum: string
     case BARREL = 'barrel';
     case CUBIC_METRE = 'cubic_metre';
 
-    public static function basic(): UnitVolumeEnum
+    public static function basic()
     {
         return self::MILLILITER;
     }
 
-    public function coefficient(): string
+    public function coefficient(): float|int
     {
         return match ($this) {
             self::MILLILITER => 1,

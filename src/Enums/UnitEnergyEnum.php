@@ -5,7 +5,7 @@ namespace Wame\LaravelNovaUnit\Enums;
 use Wame\LaravelNovaUnit\Enums\Traits\HasOptions;
 use Wame\LaravelNovaUnit\Enums\Traits\HasTitle;
 
-enum UnitEnergyEnum: string
+enum UnitEnergyEnum: string implements UnitInterface
 {
     use HasTitle;
     use HasOptions;
@@ -19,7 +19,7 @@ enum UnitEnergyEnum: string
     case CALORIE = 'calorie';
     case JOULE = 'joule';
 
-    public static function basic(): UnitEnergyEnum
+    public static function basic()
     {
         return self::KILOWATT_HOUR;
     }

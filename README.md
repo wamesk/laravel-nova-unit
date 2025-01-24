@@ -1,41 +1,35 @@
-# Laravel Nova 4 Units
-
+# Laravel Nova Units
 
 
 ## Requirements
 
-- `laravel/nova: ^4.0`
+- `"laravel/nova": "^4.0|^5.0"`
 
-
-## Installation
-
-```bash
-composer require wamesk/laravel-nova-unit
-```
-
-```bash
-php artisan vendor:publish --provider="Wame\LaravelNovaUnit\PackageServiceProvider"
-```
-
-```bash
-php artisan migrate
-```
-
-```bash
-php artisan db:seed --class=UnitSeeder
-```
-
-Add Policy to `./app/Providers/AuthServiceProvider.php`
-```php
-protected $policies = [
-    'App\Models\Unit' => 'App\Policies\UnitPolicy',
-];
-```
 
 ## Usage
 
 ```php
-Select::make(__('product.field.unit'), 'unit_id')
-    ->help(__('product.field.unit.help'))
-    ->options(UnitController::selectOptions())
+UnitSelect::make(__('product.field.weight_unit'), 'weight_unit'),
+
+UnitSelect::make(__('product.field.weight_unit'), 'weight_unit')
+    ->onlyGroups(UnitWeightEnum::class),
+
+UnitSelect::make(__('product.field.weight_unit'), 'weight_unit')
+    ->exceptGroups([
+        UnitAreaEnum::class,
+        UnitEnergyEnum::class,
+        UnitWeightEnum::class,
+        ...
+    ]),
 ```
+
+## Enums
+
+| Enum | Description |
+| --- | --- |
+| `UnitAreaEnum` | Area units |
+| `UnitEnergyEnum` | Energy units |
+| `UnitLengthEnum` | Length units |
+| `UnitQuantityEnum` | Quantity units |
+| `UnitVolumeEnum` | Volume units |
+| `UnitWeightEnum` | Weight units |

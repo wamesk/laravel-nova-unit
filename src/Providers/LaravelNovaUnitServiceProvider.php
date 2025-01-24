@@ -6,7 +6,7 @@ namespace Wame\LaravelNovaUnit\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-final class PackageServiceProvider extends ServiceProvider
+final class LaravelNovaUnitServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.

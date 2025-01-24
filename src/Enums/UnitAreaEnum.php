@@ -5,7 +5,7 @@ namespace Wame\LaravelNovaUnit\Enums;
 use Wame\LaravelNovaUnit\Enums\Traits\HasOptions;
 use Wame\LaravelNovaUnit\Enums\Traits\HasTitle;
 
-enum UnitAreaEnum: string
+enum UnitAreaEnum: string implements UnitInterface
 {
     use HasTitle;
     use HasOptions;
@@ -23,7 +23,7 @@ enum UnitAreaEnum: string
     case SQUARE_KILOMETER = 'square_kilometer';
     case SQUARE_MILE = 'square_mile';
 
-    public static function basic(): UnitAreaEnum
+    public static function basic()
     {
         return self::SQUARE_METER;
     }

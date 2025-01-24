@@ -3,9 +3,11 @@
 namespace Wame\LaravelNovaUnit\Nova\Fields;
 
 use Exception;
+use InvalidArgumentException;
 use Laravel\Nova\Fields\Select;
 use Wame\LaravelNovaUnit\Enums\UnitAreaEnum;
 use Wame\LaravelNovaUnit\Enums\UnitEnergyEnum;
+use Wame\LaravelNovaUnit\Enums\UnitInterface;
 use Wame\LaravelNovaUnit\Enums\UnitLengthEnum;
 use Wame\LaravelNovaUnit\Enums\UnitQuantityEnum;
 use Wame\LaravelNovaUnit\Enums\UnitVolumeEnum;
@@ -27,7 +29,7 @@ class UnitSelect extends Select
     /**
      * @throws Exception
      */
-    public function exceptGroups(array|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitWeightEnum $groups): self
+    public function exceptGroups(array|UnitInterface $groups): self
     {
         if ($this->usedOnlyGroups) {
             throw new Exception('Cannot use exceptGroups method when already used onlyGroups');
@@ -51,8 +53,20 @@ class UnitSelect extends Select
     /**
      * @throws Exception
      */
-    public function onlyGroups(array|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitWeightEnum $groups): self
+    public function onlyGroups(array|string $groups): self
     {
+        if (is_array($groups)) {
+            foreach ($groups as $group) {
+                if (!$group instanceof UnitInterface) {
+                    throw new InvalidArgumentException('All elements in the array must implement UnitInterface.');
+                }
+            }
+        } elseif (is_string($groups)) {
+            if (!enum_exists($groups) || !is_subclass_of($groups, UnitInterface::class)) {
+                throw new InvalidArgumentException('The provided class must be an enum implementing UnitInterface.');
+            }
+        }
+
         if ($this->usedExceptGroups) {
             throw new Exception('Cannot use onlyGroups method when already used exceptGroups');
         }
