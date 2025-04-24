@@ -8,6 +8,7 @@ use Wame\LaravelNovaUnit\Enums\UnitAreaEnum;
 use Wame\LaravelNovaUnit\Enums\UnitEnergyEnum;
 use Wame\LaravelNovaUnit\Enums\UnitLengthEnum;
 use Wame\LaravelNovaUnit\Enums\UnitQuantityEnum;
+use Wame\LaravelNovaUnit\Enums\UnitTimeEnum;
 use Wame\LaravelNovaUnit\Enums\UnitVolumeEnum;
 use Wame\LaravelNovaUnit\Enums\UnitWeightEnum;
 use function PHPUnit\Framework\returnSelf;
@@ -27,7 +28,7 @@ class UnitSelect extends Select
     /**
      * @throws Exception
      */
-    public function exceptGroups(array|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitWeightEnum $groups): self
+    public function exceptGroups(array|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitWeightEnum|UnitTimeEnum $groups): self
     {
         if ($this->usedOnlyGroups) {
             throw new Exception('Cannot use exceptGroups method when already used onlyGroups');
@@ -51,7 +52,7 @@ class UnitSelect extends Select
     /**
      * @throws Exception
      */
-    public function onlyGroups(array|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitWeightEnum $groups): self
+    public function onlyGroups(array|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitWeightEnum|UnitTimeEnum $groups): self
     {
         if ($this->usedExceptGroups) {
             throw new Exception('Cannot use onlyGroups method when already used exceptGroups');
@@ -83,6 +84,7 @@ class UnitSelect extends Select
             UnitQuantityEnum::cases(),
             UnitVolumeEnum::cases(),
             UnitWeightEnum::cases(),
+            UnitTimeEnum::cases(),
         );
 
         foreach ($cases as $case) {

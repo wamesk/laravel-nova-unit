@@ -4,6 +4,7 @@ use Wame\LaravelNovaUnit\Enums\UnitAreaEnum;
 use Wame\LaravelNovaUnit\Enums\UnitEnergyEnum;
 use Wame\LaravelNovaUnit\Enums\UnitLengthEnum;
 use Wame\LaravelNovaUnit\Enums\UnitQuantityEnum;
+use Wame\LaravelNovaUnit\Enums\UnitTimeEnum;
 use Wame\LaravelNovaUnit\Enums\UnitVolumeEnum;
 use Wame\LaravelNovaUnit\Enums\UnitWeightEnum;
 
@@ -28,7 +29,7 @@ if (!function_exists('get_unit')) {
     /**
      * @throws Exception
      */
-    function get_unit(string $value): null|UnitWeightEnum|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum {
+    function get_unit(string $value): null|UnitWeightEnum|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitTimeEnum {
         $enums = [
             UnitWeightEnum::class,
             UnitAreaEnum::class,
@@ -36,6 +37,7 @@ if (!function_exists('get_unit')) {
             UnitLengthEnum::class,
             UnitQuantityEnum::class,
             UnitVolumeEnum::class,
+            UnitTimeEnum::class,
         ];
 
         foreach ($enums as $enum) {

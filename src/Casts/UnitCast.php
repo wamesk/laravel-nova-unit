@@ -5,11 +5,11 @@ namespace Wame\LaravelNovaUnit\Casts;
 use Exception;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
-use Money\Money;
 use Wame\LaravelNovaUnit\Enums\UnitAreaEnum;
 use Wame\LaravelNovaUnit\Enums\UnitEnergyEnum;
 use Wame\LaravelNovaUnit\Enums\UnitLengthEnum;
 use Wame\LaravelNovaUnit\Enums\UnitQuantityEnum;
+use Wame\LaravelNovaUnit\Enums\UnitTimeEnum;
 use Wame\LaravelNovaUnit\Enums\UnitVolumeEnum;
 use Wame\LaravelNovaUnit\Enums\UnitWeightEnum;
 
@@ -21,7 +21,7 @@ class UnitCast implements CastsAttributes
      * @param array<string, mixed> $attributes
      * @throws Exception
      */
-    public function get(Model $model, string $key, mixed $value, array $attributes): null|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitVolumeEnum|UnitWeightEnum
+    public function get(Model $model, string $key, mixed $value, array $attributes): null|UnitAreaEnum|UnitEnergyEnum|UnitLengthEnum|UnitQuantityEnum|UnitTimeEnum|UnitVolumeEnum|UnitWeightEnum
     {
         if (is_null($value)) {
             return null;
@@ -53,6 +53,7 @@ class UnitCast implements CastsAttributes
             UnitQuantityEnum::class,
             UnitVolumeEnum::class,
             UnitWeightEnum::class,
+            UnitTimeEnum::class,
         ])) {
             return $value->value;
         }

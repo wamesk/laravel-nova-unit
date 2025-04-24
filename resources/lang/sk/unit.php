@@ -9,6 +9,7 @@ return [
     'quantity' => 'Počet',
     'volume' => 'Obsah',
     'weight' => 'Hmotnost',
+    'time' => 'Čas',
 
     'millimeter' => 'Milimeter',
     'centimeter' => 'Centimeter',
@@ -63,4 +64,11 @@ return [
     'kilo_joule' => 'Kilo joule',
     'calorie' => 'Kalória',
     'joule' => 'Joule',
+
+    'second' => 'Sekunda',
+    'minute' => 'Minuta',
+    'hour' => 'Hodina',
+    'md' => 'Pracovný deň',
+    'day' => 'Deň',
+    'week' => 'Týždeň',
 ];
