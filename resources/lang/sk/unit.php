@@ -66,7 +66,7 @@ return [
     'joule' => 'Joule',
 
     'second' => 'Sekunda',
-    'minute' => 'Minuta',
+    'minute' => 'Minúta',
     'hour' => 'Hodina',
     'md' => 'Pracovný deň',
     'day' => 'Deň',
